@@ -5,45 +5,50 @@ import no.hvl.dat102.exceptions.EmptyCollectionException;
 
 //********************************************************************
 // 
-//  Representerer en samling kø implementer vha kjedet struktur
+//  Representerer en samling kï¿½ implementer vha kjedet struktur
 //********************************************************************
 
 public class KjedetKoe<T> implements KoeADT<T> {
 	private LinearNode<T> foran, bak;
 
 	/******************************************************************
-	 * Oppretter en tom kø.
+	 * Oppretter en tom kï¿½.
 	 ******************************************************************/
 	public KjedetKoe() {
 		foran = bak = null;
 	}
 
 	/******************************************************************
-	 * Legger inn et spesifisert element i køen.
+	 * Legger inn et spesifisert element i kï¿½en.
 	 ******************************************************************/
 	@Override
 	public void innKoe(T element) {
 		LinearNode<T> nyNode = new LinearNode<T>(element);
-
+		nyNode.setNeste(foran);
+		foran = nyNode;
 		//Fyll ut
 
 	}
 
 	/******************************************************************
-	 * Fjerner og returnerer elementet foran i køen.
+	 * Fjerner og returnerer elementet foran i kï¿½en.
 	 ******************************************************************/
 	@Override
 	public T utKoe() {
 		if (erTom())
 			throw new EmptyCollectionException("koe");
+		T resultat = foran.getElement();
+		foran = foran.getNeste();
+
+		return resultat;
 
 		//Fyll ut
 		
-		return null;//Midlertidig
+//		return null;//Midlertidig
 	}
 
 	/******************************************************************
-	 * Returnerer elementet foran i køen ute å fjerne det.
+	 * Returnerer elementet foran i kï¿½en ute ï¿½ fjerne det.
 	 ******************************************************************/
 	@Override
 	public T foerste() {
@@ -55,7 +60,7 @@ public class KjedetKoe<T> implements KoeADT<T> {
 	}
 
 	/******************************************************************
-	 * Returnerer sann hvis køen er tom, usann ellers.
+	 * Returnerer sann hvis kï¿½en er tom, usann ellers.
 	 ******************************************************************/
 	@Override
 	public boolean erTom() {
@@ -63,7 +68,7 @@ public class KjedetKoe<T> implements KoeADT<T> {
 	}
 
 	/******************************************************************
-	 * Returnerer en strengrepresentasjon av elementene i køen.
+	 * Returnerer en strengrepresentasjon av elementene i kï¿½en.
 	 ******************************************************************/
 	public String toString() {
 		String resultat = "";

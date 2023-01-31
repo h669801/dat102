@@ -16,7 +16,7 @@ import no.hvl.dat102.adt.*;
 
 public abstract class KoeTADTTest {
 
-	// Referanse til stabel
+	// Referanse til koe
 	private KoeADT<Integer> Koe;
 
 	// Testdata
@@ -29,7 +29,7 @@ public abstract class KoeTADTTest {
 	protected abstract KoeADT<Integer> reset();
 
 	/**
-	 * Hent en ny stabel for hver test.
+	 * Hent en ny koe for hver test.
 	 * 
 	 * @return
 	 */
@@ -39,7 +39,7 @@ public abstract class KoeTADTTest {
 	}
 
 	/**
-	 * Test p� at en ny stabel er tom.
+	 * Test paa at en ny koe er tom.
 	 */
 	@Test
 	public void nyKoeErTom() {
@@ -47,7 +47,7 @@ public abstract class KoeTADTTest {
 	}
 
 	/**
-	 * Test p� push and pop.
+	 * Test paa inn and ut.
 	 */
 	@Test
 	public void innOgUt() {
@@ -68,7 +68,7 @@ public abstract class KoeTADTTest {
 	}
 
 	/**
-	 * Test p� push og pop med duplikate verdier.
+	 * Test paa inn og ut med duplikate verdier.
 	 */
 	@Test
 	public void innOgUtMedDuplikater() {
@@ -89,7 +89,7 @@ public abstract class KoeTADTTest {
 	}
 
 	/**
-	 * Testing p� peek.
+	 * Testing paa foerste.
 	 */
 	@Test
 	public void innUtInnInnUtFoerste() {
@@ -107,7 +107,7 @@ public abstract class KoeTADTTest {
 	}
 
 	/**
-	 * Test p� at en koe med noen elementer ikke er tom.
+	 * Test paa at en koe med noen elementer ikke er tom.
 	 */
 	@Test
 	public final void erIkkeTom() {
@@ -117,7 +117,7 @@ public abstract class KoeTADTTest {
 	}
 
 	/**
-	 * Test p� at en stabel med null elementer er tom.
+	 * Test paa at en koe med null elementer er tom.
 	 */
 	@Test
 	public void innUtErTom() {
@@ -132,7 +132,7 @@ public abstract class KoeTADTTest {
 	}
 
 	/**
-	 * Fors�k p� pop av en tom stabel skal gi "underflow excepton" *
+	 * Forsok paa ut av en tom koe skal gi "underflow excepton" *
 	 * 
 	 * @throws EmptyCollectionException expected exception
 	 */
