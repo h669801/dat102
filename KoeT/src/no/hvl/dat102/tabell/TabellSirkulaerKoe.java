@@ -33,8 +33,9 @@ public class TabellSirkulaerKoe<T> implements KoeADT<T> {
 		
 		
 		
-		koe[bak] = element;
+		
         bak = (bak + 1) % koe.length;
+        koe[bak] = element;
         if(foran == -1) {
             foran = bak;
         }
