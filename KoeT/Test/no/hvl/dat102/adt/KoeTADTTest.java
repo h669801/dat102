@@ -58,10 +58,10 @@ public abstract class KoeTADTTest {
 		Koe.innKoe(e3);
 
 		try {
-			assertEquals(e3, Koe.utKoe());
-			assertEquals(e2, Koe.utKoe());
-			assertEquals(e1, Koe.utKoe());
 			assertEquals(e0, Koe.utKoe());
+			assertEquals(e1, Koe.utKoe());
+			assertEquals(e2, Koe.utKoe());
+			assertEquals(e3, Koe.utKoe());
 		} catch (EmptyCollectionException e) {
 			fail("Ut feilet uventet " + e.getMessage());
 		}
@@ -79,10 +79,10 @@ public abstract class KoeTADTTest {
 		Koe.innKoe(e2);
 
 		try {
-			assertEquals(e2, Koe.utKoe());
-			assertEquals(e1, Koe.utKoe());
-			assertEquals(e1, Koe.utKoe());
 			assertEquals(e0, Koe.utKoe());
+			assertEquals(e1, Koe.utKoe());
+			assertEquals(e1, Koe.utKoe());
+			assertEquals(e2, Koe.utKoe());
 		} catch (EmptyCollectionException e) {
 			fail("Ut feilet uventet " + e.getMessage());
 		}
@@ -99,7 +99,7 @@ public abstract class KoeTADTTest {
 			Koe.innKoe(e3);
 			Koe.innKoe(e4);
 			Koe.utKoe();
-			assertEquals(e3, Koe.foerste());
+			assertEquals(e4, Koe.foerste());
 
 		} catch (EmptyCollectionException e) {
 			fail("Ut eller foerste feilet uventet " + e.getMessage());

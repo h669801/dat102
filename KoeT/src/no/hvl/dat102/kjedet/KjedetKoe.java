@@ -11,10 +11,12 @@ import no.hvl.dat102.exceptions.EmptyCollectionException;
 public class KjedetKoe<T> implements KoeADT<T> {
 	private LinearNode<T> foran, bak;
 
+
 	/******************************************************************
 	 * Oppretter en tom k�.
 	 ******************************************************************/
 	public KjedetKoe() {
+
 		foran = bak = null;
 	}
 
@@ -24,8 +26,15 @@ public class KjedetKoe<T> implements KoeADT<T> {
 	@Override
 	public void innKoe(T element) {
 		LinearNode<T> nyNode = new LinearNode<T>(element);
-		nyNode.setNeste(foran);
-		foran = nyNode;
+		if(erTom()) {
+			foran = nyNode;
+		}else {
+		bak.setNeste(nyNode);
+		}
+		bak = nyNode;
+		
+//		nyNode.setNeste(foran);
+//		foran = nyNode;
 		//Fyll ut
 
 	}
@@ -35,12 +44,34 @@ public class KjedetKoe<T> implements KoeADT<T> {
 	 ******************************************************************/
 	@Override
 	public T utKoe() {
-		if (erTom())
+		if (erTom()) {
+			
 			throw new EmptyCollectionException("koe");
-		T resultat = foran.getElement();
-		foran = foran.getNeste();
+		}
+		
+//		T resultat = foran.getElement();
+//		if (foran != bak) {
+//		foran = foran.getNeste();
+//		}else {
+//			foran = bak = null;
+//		}
+////		if(erTom()) {
+////			bak = null;
+////		}
+//		
+//		return resultat;
+		
+		T res = foran.getElement();
+        foran = foran.getNeste();
 
-		return resultat;
+//        if(erTom()) {
+//            bak = null;
+//        }
+        if(foran == null) {
+        	bak = null;
+        }
+
+        return res;
 
 		//Fyll ut
 		

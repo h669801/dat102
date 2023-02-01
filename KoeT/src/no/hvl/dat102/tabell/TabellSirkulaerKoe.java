@@ -30,9 +30,16 @@ public class TabellSirkulaerKoe<T> implements KoeADT<T> {
 	public void innKoe(T element) {
 		if (foran == ((bak + 2) % koe.length))
 			utvid();
-//		this.koe[this.bak] = element;
-		koe[foran] = element;
-		foran++;
+		
+		
+		
+		koe[bak] = element;
+        bak = (bak + 1) % koe.length;
+        if(foran == -1) {
+            foran = bak;
+        }
+
+        
 		//Fyll ut
 
 	}
@@ -50,21 +57,57 @@ public class TabellSirkulaerKoe<T> implements KoeADT<T> {
 //		foran = ;
 //		return item;
 		
-		T forste = koe[foran];
+//		T forste = koe[foran];
+//		int neste = 0;
 //		foran = (int) koe[foran + 1];
 //		foran--;
-		T[] f = ((T[]) (new Object[koe.length - 1]));
-		int alength = koe.length;
-		for (int i = 1; i < alength; i++) {
-			f[i - 1] = koe[i];
+//		T[] f = ((T[]) (new Object[koe.length - 1]));
+//		int alength = koe.length;
+//		int neste = foran+1;
+//		T telling = foran;
+//		telling;
+//		foran = (foran + 1) % koe.length;
+//		for (int i = 1; i < alength; i++) {
+//			f[i - 1] = koe[i];
+			
+//			bak--;
+//			forste = f[foran];
+			
 //			forste = koe[i];
-		}
+//		}
+//		int p = 0;
+//		T o = (int)(bak - foran + koe.length) % koe.length;
+//		T tall = (bak)% koe.length;
+		
+//		T resultat = foran.getElement();
+//		foran = foran.getNeste();
+		
+		
+//		T resultat = koe[(bak + 1) % koe.length];
+//		bak = (bak + 1);
+		
+//		int neste = 0;
+		T resultat = koe[foran];
+        koe[foran] = null;
+        foran = (foran + 1) % koe.length;
+//        if(foran == -1) {
+//            foran = bak;
+//        }
+
+//		neste = neste + (foran + 1) % koe.length;
+		
+		
+//		T resultat = koe[0];
+//		foran--;
+		
 //		alength--;
-		koe = f;
+//		koe = f;
+//		forste = 
 //		forste = koe[foran];
 //		foran--;
+//		T forste = koe[foran];
 
-		return forste;
+		return resultat;
 //		return null;//Midletidig
 	}
 
