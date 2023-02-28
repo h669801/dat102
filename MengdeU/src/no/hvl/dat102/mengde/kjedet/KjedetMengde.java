@@ -17,7 +17,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	/**
 	 * Oppretter en tom mengde.
 	 */
-	public KjedetMengde() {
+	public Kjedet() {
 		antall = 0;
 		start = null;
 	}//
@@ -80,7 +80,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 			resultat = start.getElement();
 			start = start.getNeste();
 			antall--;
-		} else {// Gjennomgår den kjedete strukturen
+		} else {// Gjennomgï¿½r den kjedete strukturen
 			forgjenger = start;
 			aktuell = start.getNeste();
 			for (int sok = 2; sok <= antall && !funnet; sok++) {
@@ -115,8 +115,8 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		return funnet;
 	}
 	/*
-	 * Når vi overkjører (override) equals- meteoden er det anbefalt at vi også
-	 * overkjører hashcode-metoden da en del biblioteker bruker hascode sammen med
+	 * Nï¿½r vi overkjï¿½rer (override) equals- meteoden er det anbefalt at vi ogsï¿½
+	 * overkjï¿½rer hashcode-metoden da en del biblioteker bruker hascode sammen med
 	 * equals. Vi kommer tilbake til forklaring og bruk av hashcode senere i faget.
 	 */
 
@@ -172,21 +172,29 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	public MengdeADT<T> union(MengdeADT<T> m2) {
 		
 		MengdeADT<T> begge = new KjedetMengde<T>();
-		LinearNode<T> aktuell = start;
-		T element = null;
-
-		while (aktuell != null) {// ubetinget innsetting
-			((KjedetMengde<T>) begge).settInn(aktuell.getElement());
-			aktuell = aktuell.getNeste();
-		}
-
-		Iterator<T> teller = m2.iterator();
-		while (teller.hasNext()) {
-			element = teller.next();
-			if (!this.inneholder(element)) {// tester mot "konstant" mengde
-				((KjedetMengde<T>) begge).settInn(element);
-			}
-		}
+//		LinearNode<T> aktuell = start;
+//		T element = null;
+//
+//		while (aktuell != null) {// ubetinget innsetting
+//			((KjedetMengde<T>) begge).settInn(aktuell.getElement());
+//			aktuell = aktuell.getNeste();
+//		}
+//
+//		Iterator<T> teller = m2.iterator();
+//		while (teller.hasNext()) {
+//			element = teller.next();
+//			if (!this.inneholder(element)) {// tester mot "konstant" mengde
+//				((KjedetMengde<T>) begge).settInn(element);
+//			}
+//		}
+		Iterator<T> teller = iterator();
+	    while (teller.hasNext()) {
+	        begge.leggTil(teller.next());
+	    }
+	    teller = m2.iterator();
+	    while (teller.hasNext()) {
+	        begge.leggTil(teller.next());
+	    }
 
 		return begge;
 	}//
@@ -196,6 +204,13 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		// TODO
 		MengdeADT<T> snittM = new KjedetMengde<T>();
 		T element;
+		Iterator<T> teller = m2.iterator();
+		while (teller.hasNext()) {
+	        element = teller.next();
+	        if (inneholder(element)) {
+	            snittM.leggTil(element);
+	        }
+	    }
 		/*
 		 * ..
 		 * 
@@ -209,6 +224,13 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		// TODO
 		MengdeADT<T> differensM = new KjedetMengde<T>();
 		T element;
+		Iterator<T> teller = m2.iterator();
+		while (teller.hasNext()) {
+	        element = teller.next();
+	        if (!m2.inneholder(element)) {
+	            differensM.leggTil(element);
+	        }
+	    }
 		/*
 		 * Fyll ut
 		 * 
