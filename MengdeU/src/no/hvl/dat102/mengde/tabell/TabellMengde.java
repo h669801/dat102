@@ -143,10 +143,7 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		if (m2 == this) {
 	        return true;
 	    }
-//	    if (!(o instanceof Set)) {
-//	        return false;
-//	    }
-	    TabellMengde<?> other = (TabellMengde<?>) m2;
+	    TabellMengde<T> other = (TabellMengde<T>) m2;
 	    if (other.antall() != this.antall()) {
 	        return false;
 	    }
@@ -156,8 +153,6 @@ public class TabellMengde<T> implements MengdeADT<T> {
 	            break;
 	        }
 	    }
-	    return likeMengder;
-
 		/*
 		 * ...
 		 */

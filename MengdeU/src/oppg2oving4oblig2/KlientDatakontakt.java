@@ -25,13 +25,15 @@ public class KlientDatakontakt {
 		datakontakt.finnPartnerFor(m2.getNavn());
 		datakontakt.finnPartnerFor(m3.getNavn());
 		int indeks = datakontakt.finnMedlemsIndeks(m1.getNavn());
+		System.out.println("Status indeks: " + m1.getStatusIndeks());
 		System.out.println("finnMedlemsIndeks: " + indeks);
 		System.out.println(m1.getNavn());
 		System.out.println(datakontakt.getAntallMedlemmer());
 		System.out.println(datakontakt.getMedlemTabell());
 		datakontakt.tilbakestillStatusIndeks(m1.getNavn());
 		System.out.println(datakontakt.getMedlemTabell());
-		System.out.println(datakontakt.getAntallMedlemmer());
+		System.out.println("Status-indeks etter tilbakestilling" + m1.getStatusIndeks());
+//		System.out.println(datakontakt.getAntallMedlemmer());
 		
 //
 //		for (int i = 0; i < datakontakt.getAntallMedlemmer(); i++) {
